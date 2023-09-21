@@ -1,0 +1,36 @@
+import sys
+
+Import('*')
+
+SimObject('Scratchpad.py')
+
+Source('scratchpad.cc')
+Source('systolic_sys_constants.cc')
+Source('activations.cc')
+Source('commit.cc')
+Source('dataflow.cc')
+Source('fetch.cc')
+Source('local_spad_interface.cc')
+Source('pe.cc')
+Source('systolic_array_connection.cc')
+Source('systolic_array.cc')
+Source('systolic_sys_connection.cc')
+Source('tensor.cc')
+Source('utils.cc')
+
+
+DebugFlag('SystolicToplevel', 'Top level events')
+DebugFlag('SystolicDataflow', 'Dataflow events')
+DebugFlag('SystolicInterface', 'Local scratchpad interface events')
+DebugFlag('SystolicFetch', 'Fetch unit events')
+DebugFlag('SystolicCommit', 'Commit unit events')
+DebugFlag('SystolicPE', 'PE events')
+DebugFlag('SystolicSpad', 'PE events')
+
+DebugFlag('Gem5Datapath')
+DebugFlag('Gem5DatapathVerbose')
+
+CompoundFlag('Systolic', [
+    'SystolicToplevel', 'SystolicDataflow', 'SystolicFetch',
+    'SystolicInterface', 'SystolicFetch', 'SystolicCommit',
+    'SystolicPE', 'SystolicSpad'])
